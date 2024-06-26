@@ -1,0 +1,48 @@
+.playlist {
+    margin-top: 20px;
+}
+
+.playlist input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #7e57c2;
+    /* Purple border */
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.playlist input[type="text"]:focus {
+    outline: none;
+    border-color: #673ab7;
+    /* Darker purple on focus */
+}
+
+.playlist ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.playlist li {
+    margin-bottom: 10px;
+}
+
+.playlist button {
+    background-color: #7e57c2;
+    /* Purple button */
+    color: #ffffff;
+    /* White text */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.playlist button:hover {
+    background-color: #673ab7;
+    /* Darker purple on hover */
+}
+
+.playlist .save-button {
+    margin-top: 10px;
+}

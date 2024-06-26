@@ -1,0 +1,42 @@
+.track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #7e57c2;
+    /* Purple border */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.track p {
+    margin: 0;
+    font-size: 1rem;
+    color: #888888;
+    /* Gray text */
+}
+
+.track-action {
+    background-color: #7e57c2;
+    /* Purple button */
+    color: #ffffff;
+    /* White text */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.track-action:hover {
+    background-color: #673ab7;
+    /* Darker purple on hover */
+}

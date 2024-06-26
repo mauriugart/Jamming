@@ -1,5 +1,5 @@
-import React from 'react';
-import TrackList from '../Tracklist/Tracklist';
+import React from "react";
+import "./Playlist.module.css";
 
 const Playlist = ({ name, tracks, onNameChange, onRemove, onSave }) => {
     const handleNameChange = (e) => {
@@ -7,14 +7,17 @@ const Playlist = ({ name, tracks, onNameChange, onRemove, onSave }) => {
     };
 
     return (
-        <div>
-            <input
-                value={name}
-                onChange={handleNameChange}
-                placeholder="Enter playlist name"
-            />
-            <TrackList tracks={tracks} onRemove={onRemove} isRemoval={true} />
-            <button onClick={onSave}>Save to Spotify</button>
+        <div className="playlist">
+            <input type="text" value={name} onChange={handleNameChange} />
+            <ul>
+                {tracks.map(track => (
+                    <li key={track.id}>
+                        {track.name} - {track.artist}
+                        <button className="remove-button" onClick={() => onRemove(track)}>Remove</button>
+                    </li>
+                ))}
+            </ul>
+            <button className="save-button" onClick={onSave}>Save to Spotify</button>
         </div>
     );
 };

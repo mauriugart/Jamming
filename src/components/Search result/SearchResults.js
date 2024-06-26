@@ -1,28 +1,18 @@
-import React, { useState } from "react";
-import TrackList from "../Tracklist/Tracklist";
+import React from "react";
+import './SearchResults.module.css';
 
 const SearchResults = ({ searchResults, onAdd, onSearch }) => {
-    const [searchTerm, setSearchTerm] = useState("");
-
-    const handleTermChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
-
-    const handleSearch = () => {
-        onSearch(searchTerm);
-    };
-
     return (
-        <div>
+        <div className="search-results">
             <h2>Search Results</h2>
-            <input
-                type="text"
-                value={searchTerm}
-                onChange={handleTermChange}
-                placeholder="Enter a song, album, or artist"
-            />
-            <button onClick={handleSearch}>Search</button>
-            <TrackList tracks={searchResults} onAdd={onAdd} isRemoval={false} />
+            <ul>
+                {searchResults.map(track => (
+                    <li key={track.id}>
+                        {track.name} - {track.artist}
+                        <button onClick={() => onAdd(track)}>Add</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };
