@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Track = ({ track, onAdd, isRemoval, onRemove }) => {
-
+const Track = ({ track, onAdd, onRemove, isRemoval }) => {
     const handleAdd = () => {
         onAdd(track);
     };
@@ -10,16 +9,16 @@ const Track = ({ track, onAdd, isRemoval, onRemove }) => {
         onRemove(track);
     };
 
-return (
-    <div>
-        <h3>{track.name}</h3>
-        <p>{track.artist} | {track.album}</p>
-        {isRemoval ?
-        <button onClick={handleRemove}>-</button> :
-        <button onClick={handleAdd}>+</button>
-        }
-    </div>
-);
-}
+    return (
+        <div>
+            <h3>{track.name}</h3>
+            <p>{track.artist} | {track.album}</p>
+            {isRemoval ?
+                <button onClick={handleRemove}>-</button> :
+                <button onClick={handleAdd}>+</button>
+            }
+        </div>
+    );
+};
 
 export default Track;
