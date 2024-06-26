@@ -1,7 +1,8 @@
 import React from 'react';
 import TrackList from '../Tracklist/Tracklist';
 
-const Playlist = ({ name, tracks, onNameChange }) => {
+const Playlist = ({ name, tracks, onNameChange, onRemove }) => {
+
 const handleNameChange = (e) => {
     onNameChange(e.target.value);
 };
@@ -13,7 +14,7 @@ return (
         onChange={handleNameChange} 
         placeholder="Enter playlist name" 
         />
-        <TrackList tracks={tracks} />
+        <TrackList tracks={tracks}  onRemove={onRemove} isRemoval={true} />
     </div>
 );
 }

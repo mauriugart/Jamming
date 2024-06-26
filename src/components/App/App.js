@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Playlist from '../Playlist/Playlist';
+import SearchResults from '../Search result/SearchResults';
 
 function App() {
   const [playlistName, setPlaylistName] = useState("My Playlist");
@@ -10,13 +11,37 @@ function App() {
     { id: 3, name: "Song Three", artist: "Artist Three", album: "Album Three" },
   ]);
 
+  const [searchResults, setSearchResults] = useState([
+    { id: 4, name: "Song Four", artist: "Artist Four", album: "Album Four" },
+    { id: 5, name: "Song Five", artist: "Artist Five", album: "Album Five" },
+    { id: 6, name: "Song Six", artist: "Artist Six", album: "Album Six" },
+  ]);
+
+  const addTrack = (track) => {
+    if (playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
+    }
+    setPlaylistTracks([...playlistTracks, track]);
+  };
+
+  const removeTrack = (track) => {
+    setPlaylistTracks(playlistTracks.filter(savedTrack => savedTrack.id !== track.id));
+  };
+
   return (
     <div>
       <h1>Jammming</h1>
+      
+      <SearchResults
+      searchResults={searchResults}
+      onAdd={addTrack}
+      />
+
       <Playlist 
         name={playlistName} 
         tracks={playlistTracks} 
-        onNameChange={setPlaylistName} 
+        onNameChange={setPlaylistName}
+        onRemove={removeTrack}
       />
     </div>
   );

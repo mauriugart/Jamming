@@ -1,11 +1,23 @@
 import React from 'react';
 
-const Track = ({ track }) => {
+const Track = ({ track, onAdd, isRemoval, onRemove }) => {
+
+    const handleAdd = () => {
+        onAdd(track);
+    };
+
+    const handleRemove = () => {
+        onRemove(track);
+    };
+
 return (
     <div>
-        <h2>{track.name}</h2>
-        <p>{track.artist}</p>
-        <p>{track.album}</p>
+        <h3>{track.name}</h3>
+        <p>{track.artist} | {track.album}</p>
+        {isRemoval ?
+        <button onClick={handleRemove}>-</button> :
+        <button onClick={handleAdd}>+</button>
+        }
     </div>
 );
 }
