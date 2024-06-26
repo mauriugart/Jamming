@@ -1,9 +1,9 @@
 import React from "react";
-import './SearchResults.module.css';
+import styles from './SearchResults.module.css';
 
 const SearchResults = ({ searchResults, onAdd, onSearch }) => {
     return (
-        <div className="search-results">
+        <div className={styles.search-results}>
             <h2>Search Results</h2>
             <ul>
                 {searchResults.map(track => (

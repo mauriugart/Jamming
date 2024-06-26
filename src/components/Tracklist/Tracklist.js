@@ -1,11 +1,11 @@
 import React from "react";
 import Track from "../Track/Track";
-import './Tracklist.module.css'
+import styles from './Tracklist.module.css';
 
 const TrackList = ({ tracks, onAdd, onRemove, isRemoval }) => {
     return (
-        <div className="track-list">
-            {tracks.map((track) => (
+        <div className={styles.trackList}>
+            {tracks.map(track => (
                 <Track
                     key={track.id}
                     track={track}

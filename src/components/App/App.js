@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Playlist from '../Playlist/Playlist';
-import SearchBar from '../Searchbar/SearchBar'
+import SearchBar from '../Searchbar/SearchBar';
 import Spotify from '../Spotify/Spotify';
 import TrackList from '../Tracklist/Tracklist';
-import './App.css';
+import styles from './App.module.css';
 
 const App = () => {
   const [playlistName, setPlaylistName] = useState('My Playlist');
@@ -37,21 +37,25 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <h1>Jammming</h1>
-      <SearchBar onSearch={search} />
-      <TrackList
-        tracks={searchResults}
-        onAdd={addTrack}
-        isRemoval={false}
-      />
-      <Playlist
-        name={playlistName}
-        tracks={playlistTracks}
-        onNameChange={updatePlaylistName}
-        onRemove={removeTrack}
-        onSave={savePlaylist}
-      />
+    <div className={styles.app}>
+      <h1 className={styles.appTitle}>Jamming</h1>
+      <div className={styles.searchBar}>
+        <SearchBar onSearch={search} />
+      </div>
+      <div className={styles.searchResults}>
+        <TrackList
+          tracks={searchResults}
+          onAdd={addTrack}
+          isRemoval={false}
+        />
+        <Playlist
+          name={playlistName}
+          tracks={playlistTracks}
+          onNameChange={updatePlaylistName}
+          onRemove={removeTrack}
+          onSave={savePlaylist}
+        />
+      </div>
     </div>
   );
 };
